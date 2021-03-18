@@ -23,7 +23,6 @@ class Main extends PluginBase implements Listener {
 
     public function onEnable()
     {
-        $this->getLogger()->info("is enable.");
         self::$instance = $this;
 
         if (!file_exists($this->getDataFolder() . "config.yml")){
