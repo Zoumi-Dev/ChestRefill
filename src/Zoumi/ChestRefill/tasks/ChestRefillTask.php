@@ -11,7 +11,6 @@ use pocketmine\scheduler\Task;
 use pocketmine\Server;
 use pocketmine\tile\Chest;
 use Zoumi\ChestRefill\Main;
-use Zoumi\PvPBox\tasks\RegenerateChest;
 
 class ChestRefillTask extends Task {
 
