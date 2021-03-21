@@ -17,14 +17,6 @@ class ChestRefillTask extends Task {
     public function onRun(int $currentTick)
     {
         if (--Main::$time === 0){
-            if (empty(Main::getInstance()->getConfig()->get("chest"))) {
-                Main::getInstance()->getLogger()->warning("No chest set in config.");
-                return;
-            }
-            if (empty(Main::getInstance()->getConfig()->get("items"))) {
-                Main::getInstance()->getLogger()->warning("No item set in config.");
-                return;
-            }
             foreach (Main::getInstance()->getConfig()->get("chest") as $pos){
                 $pos = explode(":", $pos);
                 Server::getInstance()->getLevelByName($pos[3])->setBlock(new Vector3($pos[0], $pos[1], $pos[2]), new \pocketmine\block\Chest());
