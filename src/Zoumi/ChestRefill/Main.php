@@ -10,8 +10,6 @@ use Zoumi\ChestRefill\tasks\ChestRefillTask;
 
 class Main extends PluginBase implements Listener {
 
-    /** @var Config $config */
-    public $config;
     /** @var static $time */
     public static $time;
     /** @var static $instance */
@@ -25,14 +23,9 @@ class Main extends PluginBase implements Listener {
     {
         self::$instance = $this;
 
-        if (!file_exists($this->getDataFolder() . "config.yml")){
-            $this->saveResource("config.yml");
-        }
+        $this->saveDefaultConfig();
 
-        /* Config */
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-
-        self::$time = $this->config->get("time");
+        self::$time = $this->getConfig()->get("time");
 
         /* Task */
         $this->getScheduler()->scheduleRepeatingTask(new ChestRefillTask(), 20);
@@ -42,5 +35,4 @@ class Main extends PluginBase implements Listener {
             new ChestRefill("chestrefill", "Allows you to see when the chests will regenerate.", "/chestrefill", []),
         ]);
     }
-
 }

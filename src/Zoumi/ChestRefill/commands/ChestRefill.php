@@ -15,7 +15,7 @@ class ChestRefill extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $sender->sendMessage("§f(§eChestRefill§f) " . str_replace("{time}", Main::$time, Main::getInstance()->config->get("command-chestrefill-message")));
+        $sender->sendMessage("§f(§eChestRefill§f) " . str_replace("{time}", Main::$time, Main::getInstance()->getConfig()->get("command-chestrefill-message")));
     }
 
 }
