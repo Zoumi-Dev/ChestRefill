@@ -11,7 +11,7 @@ use Zoumi\ChestRefill\tasks\ChestRefillTask;
 class Main extends PluginBase implements Listener {
 
     /** @var Config $config */
-    public Config $config;
+    public $config;
     /** @var static $time */
     public static $time;
     /** @var static $instance */
